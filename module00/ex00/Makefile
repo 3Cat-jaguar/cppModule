@@ -6,7 +6,7 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 08:49:01 by ylee              #+#    #+#              #
-#    Updated: 2021/11/29 08:57:07 by ylee             ###   ########.fr        #
+#    Updated: 2021/12/14 17:44:03 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,23 @@ RM = rm -rf
 NAME = megaphone
 SRCS = megaphone.cpp
 
+OBJS = $(SRCS:.cpp=.o)
+
 all : $(NAME)
 
-$(NAME) : $(SRCS)
-			$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-clean : $(NAME)
-			$(RM) $(NAME)
+$(OBJS) : $(SRCS)
+	$(CC) $(CFLAGS) -c $^
+
+clean :
+	$(RM) $(OBJS)
+
+fclean : clean
+	$(RM) $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re
+

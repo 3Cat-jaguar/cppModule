@@ -1,63 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 00:08:50 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/01 16:39:56 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/14 18:51:47 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-void	phonebook::printDetail()
+void	PhoneBook::printDetail(int i)
 {
-	std::cout << "<< "<< index << " information >>" << std::endl;
-	std::cout << "index : " << index << std::endl;
-	std::cout << "first name : " << firstName << std::endl;
-	std::cout << "last name : " << lastName << std::endl;
-	std::cout << "nickname : " << nickName << std::endl;
-	std::cout << "phone number : " << phoneNum << std::endl;
-	std::cout << "darkest secret : " << note << std::endl;
+	std::cout << "<< Detail Information >>" << std::endl;
+	std::cout << "first name : " << firstName[i] << std::endl;
+	std::cout << "last name : " << lastName[i] << std::endl;
+	std::cout << "nickname : " << nickName[i] << std::endl;
+	std::cout << "phone number : " << phoneNum[i] << std::endl;
+	std::cout << "darkest secret : " << darkestSecret[i] << std::endl;
 }
 
-void	phonebook::printList()
+void	PhoneBook::printList(int i)
 {
-//	std::string str;
-
 	std::cout << "|";
-	printStrWithFormat(10, ' ', std::to_string(index));
+	printStrWithFormat(10, ' ', std::to_string(i + 1));
 	std::cout << "|";
-	printStrWithFormat(10, ' ', firstName);
+	printStrWithFormat(10, ' ', firstName[i]);
 	std::cout << "|";
-	printStrWithFormat(10, ' ', lastName);
+	printStrWithFormat(10, ' ', lastName[i]);
 	std::cout << "|";
-	printStrWithFormat(10, ' ', nickName);
+	printStrWithFormat(10, ' ', nickName[i]);
 	std::cout << "|";
 	std::cout << std::endl;
-/*	
-	std::cout << index
-		<< "\t" << firstName
-		<< "\t" << lastName
-		<< "\t" << nickName
-		<< std::endl;
-*/
 }
 
-void	phonebook::addInfo(int index)
+void	PhoneBook::addInfo(int i)
 {
 	std::cin.ignore();
-	this->index = index + 1;
 	std::cout << "first name : ";
-	std::getline(std::cin, firstName);
+	std::getline(std::cin, firstName[i]);
 	std::cout << "last name : ";
-	std::getline(std::cin, lastName);
+	std::getline(std::cin, lastName[i]);
 	std::cout << "nickname : ";
-	std::getline(std::cin, nickName);
+	std::getline(std::cin, nickName[i]);
 	std::cout << "phone number : ";
-	std::getline(std::cin, phoneNum);
+	std::getline(std::cin, phoneNum[i]);
 	std::cout << "darkest secret : ";
-	std::getline(std::cin, note);
+	std::getline(std::cin, darkestSecret[i]);
 }

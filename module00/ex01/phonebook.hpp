@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 00:08:50 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/01 16:41:22 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/14 18:51:58 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,19 @@
 #include <string>
 #include <iomanip>
 
-class	phonebook
+class	PhoneBook
 {
 	private:
-		int			index;
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickName;
-		std::string	phoneNum;
-		std::string	note;
+		std::string	firstName[8];
+		std::string	lastName[8];
+		std::string	nickName[8];
+		std::string	phoneNum[8];
+		std::string	darkestSecret[8];
 
 	public:
-		phonebook()
+		std::string	getFirstName(int i)
 		{
-			index = 0;
-		}
-
-		int		getIndex()
-		{
-			return (index);
-		}
-
-		std::string	getFirstName()
-		{
-			return (firstName);
+			return (firstName[i]);
 		}
 
 		void	printStrWithFormat(int size, char c, std::string str)
@@ -51,7 +40,7 @@ class	phonebook
 			std::cout << str;
 		}
 
-		void	printDetail();
-		void	printList();
-		void	addInfo(int index);
+		void	printDetail(int i);
+		void	printList(int i);
+		void	addInfo(int i);
 };

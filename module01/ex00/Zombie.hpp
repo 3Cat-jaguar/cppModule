@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 22:30:48 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/03 15:15:02 by ylee             ###   ########.fr       */
+/*   Created: 2021/12/14 19:41:53 by ylee              #+#    #+#             */
+/*   Updated: 2021/12/14 20:49:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cctype>
+#include <string>
+#include <iomanip>
 
-char	*toUpperStr(char *str)
+class	Zombie
 {
-	int		i;
+private:
+	std::string	name;
 
-	i = 0;
-	while (str && str[i])
+public:
+	Zombie(){}
+	Zombie(std::string name)
 	{
-		str[i] = std::toupper(str[i]);
-		i++;
+		this->name = name;
 	}
-	return (str);
-}
-
-int main(int argc, char **argv)
-{
-	int	i;
-
-	i = 0;
-	if (argc == 1)
-		std::cout << "* LOUD AND UNVEARABLE FEEDBACK NOISE *";
-	else
+	~Zombie()
 	{
-		while (++i < argc)
-			std::cout << toUpperStr(argv[i]);
+		std::cout << "Zombie(" << name << ") is dead" << std::endl;
 	}
-	std::cout << std::endl;
-	return (0);
+	void	announce(void)
+	{
+		std::cout << "<" << name << "> BraiiiiiiinnnzzzZ..." << std::endl;
+	}
 }

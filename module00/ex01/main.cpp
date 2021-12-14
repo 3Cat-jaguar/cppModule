@@ -6,11 +6,11 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 00:08:50 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/01 16:39:16 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/14 18:58:22 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void	init_print()
 {
@@ -32,19 +32,51 @@ void	printStrWithFormat(int size, char c, std::string str)
 
 void	printDevideLine()
 {
-			std::cout << "|";
-			printStrWithFormat(11, '-', "|");
-			printStrWithFormat(11, '-', "|");
-			printStrWithFormat(11, '-', "|");
-			printStrWithFormat(11, '-', "|");
-			std::cout << std::endl;
+	std::cout << "|";
+	printStrWithFormat(11, '-', "|");
+	printStrWithFormat(11, '-', "|");
+	printStrWithFormat(11, '-', "|");
+	printStrWithFormat(11, '-', "|");
+	std::cout << std::endl;
+}
+
+void	printHeader()
+{
+	printDevideLine();
+	std::cout << "|";
+	printStrWithFormat(10, ' ', "index");
+	std::cout << "|";
+	printStrWithFormat(10, ' ', "first name");
+	std::cout << "|";
+	printStrWithFormat(10, ' ', "last name");
+	std::cout << "|";
+	printStrWithFormat(10, ' ', "nickname");
+	std::cout << "|";
+	std::cout << std::endl;
+	printDevideLine();
+}
+
+int		ShowDataList(PhoneBook list, int cnt)
+{
+	int		i;
+
+	printHeader();
+	if (cnt > 7)
+		cnt = 8;
+	i = 0;
+	while (i < cnt)
+	{
+		list.printList(i);
+		i++;
+	}
+	printDevideLine();
+	return (i);
 }
 
 int		main(void)
 {
 	std::string	command;
-	std::string data[5];
-	phonebook	list[8];
+	PhoneBook	list;
 	int			i;
 	int			cnt;
 
@@ -56,55 +88,33 @@ int		main(void)
 		std::cin >> command;
 		if (command == "EXIT")
 		{
-			std::cout << "Really?? Okay, Bye~" << std::endl;
+			std::cout << "\nReally?? Okay, Bye~\n" << std::endl;
 			return (0);
 		}
 		else if (command == "ADD")
 		{
 			i = cnt % 8;
-			list[i].addInfo(cnt);
+			list.addInfo(i);
+			std::cout << std::endl;
 			cnt++;
 		}
 		else if (command == "SEARCH")
 		{
-			printDevideLine();
-			
-			std::cout << "|";
-			printStrWithFormat(10, ' ', "index");
-			std::cout << "|";
-			printStrWithFormat(10, ' ', "first name");
-			std::cout << "|";
-			printStrWithFormat(10, ' ', "last name");
-			std::cout << "|";
-			printStrWithFormat(10, ' ', "nickname");
-			std::cout << "|";
-			std::cout << std::endl;
-			
-			printDevideLine();
-			
-			i = 0;
-			while (i < 8)
-			{
-				if (list[i].getIndex() != 0)
-					list[i].printList();
-				else
-					break ;
-				i++;
-			}
-			printDevideLine();
-			
-			if (i == 0)
+			i = ShowDataList(list, cnt);
+			if (cnt == 0)
 				std::cout << "\n This phonebook is empty\n";
 			else
 			{
-				std::cout << "If you want to see detail, press index num. Or not, press 0\n";
+				std::cout << "If you want to see detail, press index num (1 ~ "
+					<< i
+					<< "). Or not, press 0.\n";
 				std::cin >> i;
 				if (i == 0)
 					;
-				else if (i < 1 || list[(i - 1) % 8].getIndex() != i)
+				else if (i < 1 || (cnt < 8 && i - 1 > cnt) || i > 8)
 					std::cout << "you press wrong number" << std::endl;
 				else
-					list[(i - 1) % 8].printDetail();
+					list.printDetail((i - 1) % 8);
 			}
 		}
 		else
