@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: ylee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 19:42:17 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/15 15:58:36 by ylee             ###   ########.fr       */
+/*   Created: 2021/12/15 16:13:01 by ylee              #+#    #+#             */
+/*   Updated: 2021/12/15 18:10:04 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(std::string name)
+int	main(void)
 {
-	Zombie	random = Zombie(name);
-	random.announce();
+	Zombie*	zA = zombieHorde(13, "zA");
+	Zombie*	zB = zombieHorde(13, "zB");
+	int i = 0;
+	while (i < 3)
+	{
+		zA[i].announce();
+		zB[i].announce();
+		i++;
+	}
+	delete []zB;
+	zA[2].announce();
+	delete []zA;
+	return (0);
 }
