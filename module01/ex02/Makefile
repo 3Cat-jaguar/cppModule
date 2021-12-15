@@ -6,18 +6,15 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2021/12/14 19:48:35 by ylee             ###   ########.fr        #
+#    Updated: 2021/12/15 20:20:12 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-NAME = Zombies
-SRCS = main.cpp\
-	   Zombie.cpp\
-	   newZombie.cpp\
-	   randomChump.cpp
+NAME = strREF
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
