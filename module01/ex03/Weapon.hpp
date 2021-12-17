@@ -6,7 +6,7 @@
 /*   By: ylee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 20:42:50 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/15 21:40:06 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/16 17:19:50 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Weapon
 	public:
 		Weapon();
 		Weapon(std::string type);
-		std::string& getType(void);
+		const std::string& getType(void);
 		void		setType(std::string type);
 };
 

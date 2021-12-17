@@ -6,7 +6,7 @@
 /*   By: ylee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 20:47:22 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/15 21:41:57 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/16 17:49:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Weapon::Weapon(std::string type)
 	this->type = type;
 }
 
-std::string&	Weapon::getType(void)
+const std::string&	Weapon::getType(void)
 {
-	std::string&	result = type;
+	const std::string&	result = type;
 	return (result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ylee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 20:39:39 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/15 21:50:41 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/16 17:32:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class HumanB
 {
 	private:
 		std::string	name;
-		std::string*	weapon_type;
+		Weapon*		weapon;
 	public:
 		HumanB(std::string name);
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon& weapon);
 		void	attack(void);
 };
 
