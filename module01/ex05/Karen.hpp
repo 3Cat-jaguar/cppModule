@@ -6,12 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 22:43:42 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/22 01:00:38 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/23 16:15:33 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef KAREN_HPP
+# define KAREN_HPP
+
+# include <iostream>
+# include <string>
 
 class	Karen
 {
@@ -24,4 +27,6 @@ class	Karen
 		Karen();
 		void	complain(std::string level);
 };
+
+#endif
 

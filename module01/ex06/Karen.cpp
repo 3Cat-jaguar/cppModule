@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 22:43:42 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/23 17:04:13 by ylee             ###   ########.fr       */
+/*   Updated: 2021/12/23 19:13:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Karen::error()
 	std::cout << "Karen complains about error\n";
 }
 
-void	Karen::complain(std::string level)
+void	Karen::complain(int fLv, std::string level)
 {
 	void	(Karen::*func[])(void) = {
 		&Karen::debug,
@@ -48,19 +48,22 @@ void	Karen::complain(std::string level)
 		"WARNING",
 		"ERROR"
 	};
-	int	i = 0;
-	while (i < 4)
+	int	cLv = 0;
+	while (cLv < 4)
 	{
-		if (complainLevel[i] == level)
+		if (complainLevel[cLv] == level)
 			break;
 		else
-			i++;
+			cLv++;
 	}
-	if (i == 4)
+	if (cLv == 4)
 	{
-		std::cout << "Wrong Complain\n";
+		std::cout << level << " : Wrong complain level\n";
 		return ;
 	}
-	(this->*func[i])();
+	if (fLv <= cLv)
+	{
+		std::cout << level << " : ";
+		(this->*func[cLv])();
+	}
 }
-

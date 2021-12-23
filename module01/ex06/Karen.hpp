@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 22:43:17 by ylee              #+#    #+#             */
-/*   Updated: 2021/12/23 16:54:08 by ylee             ###   ########.fr       */
+/*   Created: 2021/12/21 22:43:42 by ylee              #+#    #+#             */
+/*   Updated: 2021/12/23 19:10:48 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-int		main(void)
+# include <iostream>
+# include <string>
+
+class	Karen
 {
-	Karen karen;
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+	public:
+		Karen();
+		void	complain(int fLv, std::string level);
+};
 
-	karen.complain("test");
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	return (0);
-}
+#endif
+
