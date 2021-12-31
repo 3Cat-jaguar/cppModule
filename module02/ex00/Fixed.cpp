@@ -12,16 +12,15 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed() : fixedValue(0)
 {
-	this->fixedValue = 0;
 	std::cout << "Default contructor called\n";
 }
 
 Fixed::Fixed(Fixed& otherObj)
 {
-	this->fixedValue = otherObj.getRawBits();
 	std::cout << "Copy constructor called\n";
+	*this = otherObj;
 }
 
 Fixed::~Fixed(void)
@@ -31,8 +30,8 @@ Fixed::~Fixed(void)
 
 Fixed&	Fixed::operator=(Fixed& otherObj)
 {
-	this->fixedValue = otherObj.getRawBits();
 	std::cout << "Assignation operator called\n";
+	fixedValue = otherObj.getRawBits();
 	return (*this);
 }
 

@@ -18,14 +18,14 @@
 class	Fixed
 {
 	private:
-		int					fixedValue;
+		int			fixedValue;
 		static const int	fracBitNum = 8;
 	public:
 		Fixed(void);
 		Fixed(Fixed& otherObj);
 		~Fixed(void);
 		Fixed&	operator=(Fixed& otherObj);
-		int		getRawBits(void);
+		int	getRawBits(void);
 		void	setRawBits(int const raw);
 };
 
