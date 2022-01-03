@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:36:33 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/03 17:04:12 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/03 18:10:24 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ Fixed	Fixed::operator/(const Fixed& otherObj)
 	Fixed ret = *this;
 	int a = fixedValue;
 	int b = otherObj.getRawBits();
-	ret.setRawBits((a / b) * (1 << fracBit));
+	ret.setRawBits((a / b) * (1 << fracBitNum));
 	return ret;
 }
 
@@ -178,16 +178,14 @@ static Fixed&	Fixed::min(Fixed& a, Fixed& b)
 {
 	if (a < b)
 		return a;
-	else
-		return b;
+	return b;
 }
 
 static Fixed&	Fixed::max(Fixed& a, Fixed& b)
 {
 	if (a > b)
 		return a;
-	else
-		return b;
+	return b;
 }
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj)

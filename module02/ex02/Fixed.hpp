@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:36:33 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/03 17:03:30 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/03 18:08:00 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ class	Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 		static Fixed&	min(Fixed& a, Fixed& b);
+		static Fixed&	min(const Fixed& a, const Fixed& b) const;
 		static Fixed&	max(Fixed& a, Fixed& b);
+		static Fixed&	max(const Fixed& a, const Fixed& b) const;
 };
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj);
