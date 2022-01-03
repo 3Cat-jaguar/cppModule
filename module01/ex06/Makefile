@@ -6,12 +6,12 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2021/12/23 17:24:34 by ylee             ###   ########.fr        #
+#    Updated: 2022/01/03 11:48:29 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 NAME = karenFilter
 SRCS = main.cpp\
