@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:36:33 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/03 18:08:00 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/04 11:12:03 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ class	Fixed
 		~Fixed(void);
 		Fixed&	operator=(const Fixed& otherObj);
 
-		bool	operator>(const Fixed& otherObj);
-		bool	operator<(const Fixed& otherObj);
-		bool	operator>=(const Fixed& otherObj);
-		bool	operator<=(const Fixed& otherObj);
-		bool	operator==(const Fixed& otherObj);
-		bool	operator!=(const Fixed& otherObj);
+		bool	operator>(const Fixed& otherObj) const;
+		bool	operator<(const Fixed& otherObj) const;
+		bool	operator>=(const Fixed& otherObj) const;
+		bool	operator<=(const Fixed& otherObj) const;
+		bool	operator==(const Fixed& otherObj) const;
+		bool	operator!=(const Fixed& otherObj) const;
 		
-		Fixed	operator+(const Fixed& otherObj);
-		Fixed	operator-(const Fixed& otherObj);
-		Fixed	operator*(const Fixed& otherObj);
-		Fixed	operator/(const Fixed& otherObj);
+		Fixed	operator+(const Fixed& otherObj) const;
+		Fixed	operator-(const Fixed& otherObj) const;
+		Fixed	operator*(const Fixed& otherObj) const;
+		Fixed	operator/(const Fixed& otherObj) const;
 
 		Fixed&	operator++(void);
 		Fixed	operator++(int);
@@ -51,9 +51,9 @@ class	Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 		static Fixed&	min(Fixed& a, Fixed& b);
-		static Fixed&	min(const Fixed& a, const Fixed& b) const;
+		const static Fixed&	min(const Fixed& a, const Fixed& b);
 		static Fixed&	max(Fixed& a, Fixed& b);
-		static Fixed&	max(const Fixed& a, const Fixed& b) const;
+		const static Fixed&	max(const Fixed& a, const Fixed& b);
 };
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj);
