@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 14:05:32 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/10 01:31:34 by ylee             ###   ########.fr       */
+/*   Created: 2022/01/06 18:53:38 by ylee              #+#    #+#             */
+/*   Updated: 2022/01/09 22:28:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include <iostream>
-# include <string>
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class	ClapTrap
+class	DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
-	std::string Name;
-	int			HP;
-	int			EP;
-	int			AD;
-
+	std::string	Name;
 public:
-	ClapTrap();
-	ClapTrap(std::string Name);
-	ClapTrap(const ClapTrap& otherObj);
-	~ClapTrap();
-	ClapTrap&	operator=(const ClapTrap& otherObj);
-	void		attack(std::string const & target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
+	DiamondTrap();
+	DiamondTrap(const std::string& Name);
+	DiamondTrap(const DiamondTrap& otherObj);
+	~DiamondTrap();
+	DiamondTrap&	operator=(const DiamondTrap& otherObj);
+	void	attack(std::string const& target);
+	void	whoAmI();
 };
 
 #endif

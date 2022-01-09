@@ -6,11 +6,11 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:05:04 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/10 02:09:18 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/10 03:02:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int		main(void)
 {
@@ -57,6 +57,51 @@ int		main(void)
 	st3.guardGate();
 	st1.beRepaired(10);
 	st1.guardGate();
+
+	std::cout << "\n\"We need more helpers. When will FragTraps come???\n\n";
+	std::cout << "??? : \"Here!! We are!!!\"\n";
+	FragTrap	ft1("FT1");
+	FragTrap	ft2 = FragTrap("FT2");
+	FragTrap	ft3("FT3");
+	FragTrap	ft4(ft1);
 	std::cout << std::endl;
+	ft1.highFivesGuys();
+	ft2.highFivesGuys();
+	ft3.highFivesGuys();
+	ft4.highFivesGuys();
+	ft1.attack("enemy1");
+	ft1.takeDamage(5);
+	ft1.beRepaired(2);
+
+	std::cout << "\n??? : \"We will help you\"\n";
+    DiamondTrap dt1("DT1");
+    DiamondTrap dt2 = DiamondTrap("DT2");
+    DiamondTrap dt3(dt1);
+
+    std::cout << "\nDiamondTrap 1\n";
+    dt1.attack("enemy");
+    dt1.takeDamage(10);
+    dt1.beRepaired(5);
+    dt1.guardGate();
+    dt1.highFivesGuys();
+    dt1.whoAmI();
+
+    std::cout << "\nDiamondTrap 2\n";
+    dt2.attack("enemy");
+    dt2.takeDamage(10);
+    dt2.beRepaired(5);
+    dt2.guardGate();
+    dt2.highFivesGuys();
+    dt2.whoAmI();
+
+    std::cout << "\nDiamondTrap 3\n";
+    dt3.attack("enemy");
+    dt3.takeDamage(10);
+    dt3.beRepaired(5);
+    dt3.guardGate();
+    dt3.highFivesGuys();
+    dt3.whoAmI();
+	std::cout << std::endl;
+
 	return 0 ;
 }

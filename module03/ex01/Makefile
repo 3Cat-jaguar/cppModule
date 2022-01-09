@@ -6,14 +6,14 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2022/01/06 18:53:10 by ylee             ###   ########.fr        #
+#    Updated: 2022/01/09 21:53:13 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = ClapTrap
+NAME = ScavTrap
 SRCS = main.cpp\
 	   ClapTrap.cpp\
 	   ScavTrap.cpp\

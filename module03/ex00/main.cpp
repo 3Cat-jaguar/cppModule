@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:05:04 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/06 18:48:20 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/10 02:10:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ int		main(void)
 	ct2.takeDamage(7);
 	ct3.attack("enemy1");
 	ct3.takeDamage(7);
-
-
-
-
-
+	std::cout << std::endl;
 	return 0 ;
 }

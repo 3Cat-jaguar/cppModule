@@ -6,11 +6,12 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:05:04 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/10 02:09:18 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/10 03:01:06 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int		main(void)
 {
@@ -57,6 +58,24 @@ int		main(void)
 	st3.guardGate();
 	st1.beRepaired(10);
 	st1.guardGate();
+
+	std::cout << "\n\"We need more helpers. When will FragTraps come???\n\n";
+	std::cout << "??? : \"Here!! We are!!!\"\n";
+	FragTrap	ft1("FT1");
+	FragTrap	ft2 = FragTrap("FT2");
+	FragTrap	ft3("FT3");
+	FragTrap	ft4(ft1);
 	std::cout << std::endl;
+	ft1.highFivesGuys();
+	ft2.highFivesGuys();
+	ft3.highFivesGuys();
+	ft4.highFivesGuys();
+	ft1.attack("enemy1");
+	ft1.takeDamage(5);
+	ft1.beRepaired(2);
+	std::cout << std::endl;
+
+
+
 	return 0 ;
 }

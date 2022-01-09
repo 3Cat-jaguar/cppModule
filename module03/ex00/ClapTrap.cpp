@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:05:32 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/06 18:50:32 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/10 02:10:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : HP(10), EP(10), AD(0)
 
 ClapTrap::ClapTrap(std::string Name): Name(Name), HP(10), EP(10), AD(0)
 {
-	std::cout << "ClapTrap Constructor with Name called\n";
+	std::cout << "ClapTrap Constructor with Name \' " << Name << " \' called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& otherObj)
@@ -31,41 +31,17 @@ ClapTrap::ClapTrap(const ClapTrap& otherObj)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap Destructor called\n";
+	std::cout << "ClapTrap " << Name << " Destructor called\n";
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& otherObj)
 {
 	std::cout << "ClapTrap Assignation operator called\n";
-	Name = otherObj.getName();
-	HP = otherObj.getHitPoints();
-	EP = otherObj.getEnergyPoints();
-	AD = otherObj.getAttackDamage();
+	Name = otherObj.Name;
+	HP = otherObj.HP;
+	EP = otherObj.EP;
+	AD = otherObj.AD;
 	return *this ;
-}
-
-std::string	ClapTrap::getName() const
-{
-	std::cout << "ClapTrap getName function called\n";
-	return Name ; 
-}
-
-int			ClapTrap::getHitPoints() const
-{
-	std::cout << "ClapTrap getHP function called\n";
-	return HP ;
-}
-
-int			ClapTrap::getEnergyPoints() const
-{
-	std::cout << "ClapTrap getEP function called\n";
-	return EP ;
-}
-
-int			ClapTrap::getAttackDamage() const
-{
-	std::cout << "ClapTrap getAD function called\n";
-	return AD ;
 }
 
 void	ClapTrap::attack(std::string const & target)
