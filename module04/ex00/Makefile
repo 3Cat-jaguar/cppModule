@@ -6,7 +6,7 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2022/01/12 16:37:10 by ylee             ###   ########.fr        #
+#    Updated: 2022/01/12 19:00:21 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ NAME = makeSound
 SRCS = main.cpp\
 	   Animal.cpp\
 	   Dog.cpp\
-	   Cat.cpp
+	   Cat.cpp\
+	   WrongAnimal.cpp\
+	   WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

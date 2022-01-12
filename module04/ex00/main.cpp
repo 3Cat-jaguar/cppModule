@@ -6,12 +6,14 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:06:28 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/12 17:07:25 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/12 18:59:55 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
+
 int main()
 {
 	const Animal* meta = new Animal();
@@ -25,4 +27,11 @@ int main()
 	delete meta;
 	delete i;
 	delete j;
+	std::cout << "\nCompare Cat vs WrongCat\n";
+	const Animal* cat = new Cat();
+	const WrongAnimal* w_cat = new WrongCat();
+	cat->makeSound();
+	w_cat->makeSound();
+	delete cat;
+	delete w_cat;
 }
