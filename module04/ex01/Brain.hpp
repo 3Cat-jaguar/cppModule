@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 16:54:07 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/13 21:08:17 by ylee             ###   ########.fr       */
+/*   Created: 2022/01/12 18:37:49 by ylee              #+#    #+#             */
+/*   Updated: 2022/01/13 13:10:47 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class	Cat:public Animal
+class	Brain
 {
 private:
-	Brain*	brain;
+	std::string ideas[100];
+	unsigned int	cnt;
 public:
-	Cat();
-	Cat(const Cat& otherObj);
-	~Cat();
-	Cat&	operator=(const Cat& otherObj);
-	virtual void	makeSound() const;
-	Brain*	getBrain();
-	std::string	getBrainIdea(unsigned int idx);
-	int			addBrainIdea(std::string idea);
+	Brain();
+	Brain(const Brain& otherObj);
+	~Brain();
+	Brain&	operator=(const Brain& otherObj);
+	std::string	getIdea(unsigned int idx) const;
+	int			addIdea(const std::string& idea);
 };
 
 #endif
-

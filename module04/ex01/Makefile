@@ -6,18 +6,19 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2022/01/12 16:37:10 by ylee             ###   ########.fr        #
+#    Updated: 2022/01/13 21:04:06 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = makeSound
+NAME = brain
 SRCS = main.cpp\
 	   Animal.cpp\
 	   Dog.cpp\
-	   Cat.cpp
+	   Cat.cpp\
+	   Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
