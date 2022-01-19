@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/17 16:03:48 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 00:35:48 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,30 @@
 
 class	Bureaucrat
 {
-private:
-	std::string		name;
-	unsigned int	grade;
-public:
-	Bureaucrat();
-	Bureaucrat(const std::string& name, unsigned int grade);
-	Bureaucrat(const Bureaucrat& otherObj);
-	Bureaucrat&	operator=(const Bureaucrat& otherObj);
-	~Bureaucrat();
-	std::string		getName() const;
-	unsigned int	getGrade() const;
-	void			increGrade();
-	void			decreGrade();
-	class	GradeTooHighException : public std::exception
-	{
-		//overriding std::exception what()
-		const char* what() const _NOEXCEPT
+	private:
+		std::string		name;
+		unsigned int	grade;
+	public:
+		Bureaucrat();
+		Bureaucrat(const std::string& name, unsigned int grade);
+		Bureaucrat(const Bureaucrat& otherObj);
+		Bureaucrat&	operator=(const Bureaucrat& otherObj);
+		~Bureaucrat();
+		std::string		getName() const;
+		unsigned int	getGrade() const;
+		void			increGrade();
+		void			decreGrade();
+		class	GradeTooHighException : public std::exception
 		{
-			return "Grade is too high. Max grade is 1.\n";
-		}
-	};
+			//overriding std::exception what()
+			const char* what() const throw();
+		};
 
-	class	GradeTooLowException : public std::exception
-	{
-		//overriding std::exception what()
-		const char* what() const _NOEXCEPT
+		class	GradeTooLowException : public std::exception
 		{
-			return "Grade is too low. Min grade is 150.\n";
-		}
-	};
+			//overriding std::exception what()
+			const char* what() const throw();
+		};
 };
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& obj);

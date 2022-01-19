@@ -30,9 +30,13 @@ class	Form
 		Form(const Form& copy);
 		Form& operator=(const Form& copy);
 		~Form();
+		getName();
+		getGradeForSign();
+		getGradeForExec();
+		getIsSigned();
 		beSigned();
 
-}
+};
 
 std::ostream&	operator<<(std::ostream& out, const Form& obj);
 
