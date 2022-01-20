@@ -6,16 +6,16 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/17 16:03:48 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:17:27 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include <iostream>
-# include <string>
-# include <exception>
+# include "Bureaucrat.hpp"
+
+class	Bureaucrat;
 
 class	Form
 {
@@ -30,14 +30,22 @@ class	Form
 		Form(const Form& copy);
 		Form& operator=(const Form& copy);
 		~Form();
-		getName();
-		getGradeForSign();
-		getGradeForExec();
-		getIsSigned();
-		beSigned();
+		std::string		getName() const;
+		unsigned int	getGradeForSign() const;
+		unsigned int	getGradeForExec() const;
+		bool			getIsSigned() const;
+		void			beSigned(Bureaucrat& doc);
+		class	GradeTooHighException:public std::exception
+		{
+			const char* what() const throw();
+		};
+		class	GradeTooLowException:public std::exception
+		{
+			const char* what() const throw();
+		};
 
 };
 
-std::ostream&	operator<<(std::ostream& out, const Form& obj);
+std::ostream&	operator<<(std::ostream& out, const Form& form);
 
 #endif

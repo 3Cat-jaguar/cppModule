@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 00:35:48 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:17:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include "Form.hpp"
+
+class	Form;
 
 class	Bureaucrat
 {
@@ -32,6 +35,7 @@ class	Bureaucrat
 		unsigned int	getGrade() const;
 		void			increGrade();
 		void			decreGrade();
+		void			signForm(Form& form);
 		class	GradeTooHighException : public std::exception
 		{
 			//overriding std::exception what()

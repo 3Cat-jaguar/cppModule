@@ -6,37 +6,44 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:21:41 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/17 16:07:28 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 15:36:43 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int		main()
 {
-	Bureaucrat a("test1", 0);
-	Bureaucrat b("test2", 151);
-	Bureaucrat c("test3", 10);
-	Bureaucrat d("test4", 1);
-	Bureaucrat e("test5", 150);
-	std::cout << "\n<< c test3 >>\n";
-	std::cout << c << std::endl;
-	c.increGrade();
-	std::cout << c << std::endl;
-	c.decreGrade();
-	std::cout << c << std::endl;
-	std::cout << "\n<< d test4 >>\n";
-	std::cout << d << std::endl;
-	d.increGrade();
-	std::cout << d << std::endl;
-	d.decreGrade();
-	std::cout << d << std::endl;
-	std::cout << "\n<< e test5 >>\n";
-	std::cout << e << std::endl;
-	e.increGrade();
-	std::cout << e << std::endl;
-	e.decreGrade();
-	std::cout << e << std::endl;
+	Form doc1("doc1", 70, 30);
+	Form doc2("doc2", 100, 70);
+	Bureaucrat ylee("ylee", 80);
+
+	std::cout << doc1 << std::endl;
+	std::cout << doc2 << std::endl;
+	std::cout << ylee << std::endl;
+	std::cout << "===== ylee want sign doc1 =====\n\n";
+	ylee.signForm(doc1);
+	try
+	{
+		doc1.beSigned(ylee);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << doc1 << std::endl;
+	std::cout << "===== ylee want sign doc2 =====\n\n";
+	ylee.signForm(doc2);
+	try
+	{
+		doc2.beSigned(ylee);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << doc2 << std::endl;
 
 	return (0);
 }
