@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:28:37 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 18:35:39 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 04:02:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define SHRUBBERY_CREATION_FORM_HPP
 
 # include "Form.hpp"
+# include <fstream>
 
-class ShrubberyCreationForm:public class Form
+class ShrubberyCreationForm:public Form
 {
 private:
 	std::string		target;

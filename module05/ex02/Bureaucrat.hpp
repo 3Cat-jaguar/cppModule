@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 15:17:57 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 03:45:23 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class	Bureaucrat
 		void			increGrade();
 		void			decreGrade();
 		void			signForm(Form& form);
+		void			executeForm(Form const & form);
 		class	GradeTooHighException : public std::exception
 		{
 			//overriding std::exception what()

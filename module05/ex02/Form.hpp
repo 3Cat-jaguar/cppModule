@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 18:32:43 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 03:53:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class	Form
 		bool		isSigned;
 		Form();
 	public:
-		Form();
 		Form(const std::string& name, const unsigned int s, const unsigned int e);
 		Form(const Form& copy);
 		Form& operator=(const Form& copy);
@@ -48,5 +47,6 @@ class	Form
 };
 
 std::ostream&	operator<<(std::ostream& out, const Form& form);
+std::string	IntToStr(const unsigned int num);
 
 #endif
