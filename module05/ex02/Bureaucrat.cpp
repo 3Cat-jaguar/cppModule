@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 15:27:53 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 02:12:12 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			Bureaucrat::increGrade()
 	std::cout << "increGrade func called\n";
 	try
 	{
-		if (grade == 1)
+		if (grade <= 1)
 			throw (GradeTooHighException());
 		grade = grade - 1;
 	}
@@ -84,7 +84,7 @@ void			Bureaucrat::decreGrade()
 	std::cout << "decreGrade func called\n";
 	try
 	{
-		if (grade == 150)
+		if (grade >= 150)
 			throw (GradeTooLowException());
 		grade = grade + 1;
 	}
@@ -100,16 +100,35 @@ void		Bureaucrat::signForm(Form& form)
 		std::cout << "This form is signed already\n";
 		return ;
 	}
-	try {
-		form.beSigned(*this);
-		std::cout << name << " signs " << form.getName() << ". \"This form can sign!!!\"\n";
-	}
-	catch (std::exception& e)
+	while (grade >= 1)
 	{
-		std::cout << name << " cannot sign " << form.getName() << " because ";
-		std::cout << e.what();
+		try {
+			form.beSigned(*this);
+			std::cout << name << " signs " << form.getName() << ". \"This form can sign!!!\"\n";
+			break;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << name << " cannot sign " << form.getName() << " because ";
+			std::cout << e.what();
+			Bureaucrat::increGrade();
+		}
 	}
 
+}
+
+void		Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " execute " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << name << " cannot execute " << form.getName() << " because ";
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
