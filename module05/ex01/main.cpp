@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:21:41 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 15:36:43 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 23:42:29 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		main()
 {
-	Form doc1("doc1", 70, 30);
-	Form doc2("doc2", 100, 70);
+	Form doc1("doc1", 100, 70);
+	Form doc2("doc2", 70, 30);
 	Bureaucrat ylee("ylee", 80);
 
 	std::cout << doc1 << std::endl;

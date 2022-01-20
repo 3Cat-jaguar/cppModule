@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 15:34:15 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 23:46:32 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void		Form::beSigned(Bureaucrat& doc)
 	}
 	else
 	{
-		std::string ret = "Required Grade is " + IntToStr(gradeForSign) + ". This Grade(" + IntToStr(doc.getGrade()) +") is low.\n";
+		std::string ret = "Required Grade is " + IntToStr(gradeForSign) + ". This Grade is " + IntToStr(doc.getGrade()) +".\n";
 		std::cout << ret;
 		throw(GradeTooLowException());
 	}
@@ -100,11 +100,12 @@ void		Form::beSigned(Bureaucrat& doc)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high. Max grade is 1.\n";
+	return "Grade is too high.\n";
 }
+
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low. Min grade is 150.\n";
+	return "Grade is too low.\n";
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& form)
@@ -112,7 +113,11 @@ std::ostream&	operator<<(std::ostream& out, const Form& form)
 	out << "[ " << form.getName() << " ]\n";
 	out << "\tGrade for Sign\t: " << form.getGradeForSign() << std::endl;
 	out << "\tGrade for Exec\t: " << form.getGradeForExec() << std::endl;
-	out << "\tThis is Signed?\t: " << form.getIsSigned() << std::endl;
+	out << "\tThis is Signed?\t: ";
+	if (form.getIsSigned())
+		out << "Signed" << std::endl;
+	else
+		out << "Not Signed" << std::endl;
 	return out;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 15:27:53 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/20 23:37:43 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,19 @@ void		Bureaucrat::signForm(Form& form)
 		std::cout << "This form is signed already\n";
 		return ;
 	}
-	try {
-		form.beSigned(*this);
-		std::cout << name << " signs " << form.getName() << ". \"This form can sign!!!\"\n";
-	}
-	catch (std::exception& e)
+	while (grade >= 1)
 	{
-		std::cout << name << " cannot sign " << form.getName() << " because ";
-		std::cout << e.what();
+		try {
+			form.beSigned(*this);
+			std::cout << name << " signs " << form.getName() << ". \"This form can sign!!!\"\n";
+			break;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << name << " cannot sign " << form.getName() << " because ";
+			std::cout << e.what();
+			Bureaucrat::increGrade();
+		}
 	}
 
 }
