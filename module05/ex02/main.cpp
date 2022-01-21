@@ -6,24 +6,19 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:21:41 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 04:18:38 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 17:44:16 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int		main()
+void	testShrubberyCreationForm(Bureaucrat& ylee, ShrubberyCreationForm& doc1)
 {
-	ShrubberyCreationForm doc1("doc1");
-	ShrubberyCreationForm doc2("doc2");
-	Bureaucrat ylee("ylee", 80);
-
-	std::cout << doc1 << std::endl;
-	std::cout << doc2 << std::endl;
-	std::cout << ylee << std::endl;
-	std::cout << "===== ylee want sign doc1 =====\n\n";
+	std::cout << "<< ylee want sign doc1 >>\n";
 	ylee.signForm(doc1);
 	try
 	{
@@ -35,16 +30,17 @@ int		main()
 	}
 	std::cout << doc1 << std::endl;
 
-	std::cout << "===== ylee want execute doc1 =====\n\n";
+	std::cout << "<< ylee want execute doc1 >>\n";
 	
 	ylee.executeForm(doc1);
 	std::string name = doc1.getTarget() + "_shrubbery";
-	std::cout << "now, we open file, name : " << name << "\n";
+	std::cout << "Now, we open file, name : " << name << ".\nResult : ";
 	std::ifstream infile(name);
 	if (infile.fail())
-		std::cout << "this file does not exist\n";
+		std::cout << "FAIL!!\n\tThis file (" << name << ") does not exist\n";
 	else
 	{
+		std::cout << "SUCCESS!! LET`S SHOW!!\n";
 		std::string str;
 		while (!infile.eof())
 		{
@@ -54,8 +50,11 @@ int		main()
 		}
 		infile.close();
 	}
-	std::cout << doc1 << std::endl;
-	std::cout << "===== ylee want sign doc2 =====\n\n";
+}
+
+void	testRobotomyRequestFormForm(Bureaucrat& ylee, RobotomyRequestForm& doc2)
+{
+	std::cout << "<< ylee want sign doc2 >>\n";
 	ylee.signForm(doc2);
 	try
 	{
@@ -66,6 +65,51 @@ int		main()
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << doc2 << std::endl;
+
+	std::cout << "<< ylee want execute doc2 >>\n";
+	std::cout << "Result : \n\t";
+	ylee.executeForm(doc2);
+}
+
+void	testPresidentialPardonForm(Bureaucrat& ylee, PresidentialPardonForm& doc3)
+{
+	std::cout << "<< ylee want sign doc3 >>\n";
+	ylee.signForm(doc3);
+	try
+	{
+		doc3.beSigned(ylee);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << doc3<< std::endl;
+
+	std::cout << "<< ylee want execute doc3 >>\n";
+	std::cout << "Result : \n\t";
+	ylee.executeForm(doc3);
+}
+
+int		main()
+{
+	ShrubberyCreationForm doc1("MyHome");
+	RobotomyRequestForm doc2("Marvin");
+	PresidentialPardonForm doc3("Trillian");
+	Bureaucrat ylee("ylee", 1);
+
+	std::cout << doc1 << std::endl;
+	std::cout << doc2 << std::endl;
+	std::cout << doc3 << std::endl;
+	std::cout << ylee << std::endl;
+
+	std::cout << "===== test Shurubbery Creation Form =====\n\n";
+	testShrubberyCreationForm(ylee, doc1);
+	std::cout << std::endl;
+	std::cout << "===== test Robotomy Request Form =====\n\n";
+	testRobotomyRequestFormForm(ylee, doc2);
+	std::cout << std::endl;
+	std::cout << "===== test Presidential Pardon Form =====\n\n";
+	testPresidentialPardonForm(ylee, doc3);
 
 	return (0);
 }

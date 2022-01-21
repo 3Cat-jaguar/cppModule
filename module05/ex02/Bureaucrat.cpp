@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 03:45:35 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 17:46:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,11 @@ void		Bureaucrat::executeForm(Form const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << name << " execute " << form.getName() << std::endl;
+		std::cout << "Bureaucrat >> " << name << " execute " << form.getName() << std::endl;
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << name << " cannot execute " << form.getName() << " because ";
+		std::cerr << "Bureaucrat >> " << name << " cannot execute " << form.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 	}
 }

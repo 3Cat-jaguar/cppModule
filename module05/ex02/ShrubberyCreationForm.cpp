@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:28:37 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 04:02:03 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 16:59:12 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 	{
 		//사인받았는지 먼저 확인
 		if (!getIsSigned())
-			throw (GradeTooLowException());
+			throw (NotSignedException());
 		//실행할수있는지 확인
 		if (executor.getGrade() > getGradeForExec())
 		{

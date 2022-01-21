@@ -6,25 +6,11 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 03:43:01 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 16:58:13 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-std::string	IntToStr(const unsigned int num)
-{
-	unsigned int	n = num;
-	std::string ret;
-
-	while (n > 0)
-	{
-		ret = ret + (char)((n % 10) + '0');
-		n = n / 10;
-	}
-	std::reverse(ret.begin(), ret.end());
-	return ret;
-}
 
 Form::Form():name("NoName"), gradeForSign(0), gradeForExec(0), isSigned(false)
 {
@@ -98,6 +84,11 @@ void		Form::beSigned(Bureaucrat& doc)
 	}
 }
 
+const char* Form::NotSignedException::what() const throw()
+{
+	return "This Form is not signed yet.\n";
+}
+
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high.\n";
@@ -119,5 +110,19 @@ std::ostream&	operator<<(std::ostream& out, const Form& form)
 	else
 		out << "Not Signed" << std::endl;
 	return out;
+}
+
+std::string	IntToStr(const unsigned int num)
+{
+	unsigned int	n = num;
+	std::string ret;
+
+	while (n > 0)
+	{
+		ret = ret + (char)((n % 10) + '0');
+		n = n / 10;
+	}
+	std::reverse(ret.begin(), ret.end());
+	return ret;
 }
 

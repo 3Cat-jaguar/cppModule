@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 03:53:19 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 16:58:55 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ class	Form
 		unsigned int	getGradeForExec() const;
 		bool			getIsSigned() const;
 		void			beSigned(Bureaucrat& doc);
+		class	NotSignedException:public std::exception
+		{
+			const char* what() const throw();
+		};
 		class	GradeTooHighException:public std::exception
 		{
 			const char* what() const throw();

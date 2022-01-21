@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:28:37 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 18:35:20 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 17:35:09 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "Form.hpp"
 
-class RobotomyRequestForm:public class Form
+class RobotomyRequestForm:public Form
 {
 private:
 	std::string target;
