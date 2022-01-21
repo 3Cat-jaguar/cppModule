@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 16:58:13 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/21 19:12:36 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 Form::Form():name("NoName"), gradeForSign(0), gradeForExec(0), isSigned(false)
 {
-	std::cout << "Form Default Constructor called\n";
 }
 
 Form::Form(const std::string& name, const unsigned int s, const unsigned int e):name(name), gradeForSign(s), gradeForExec(e), isSigned(false)
 {
-	std::cout << "Form Constructor with params called\n";
 	try{
 		if (s < 1 || e < 1)
 			throw(GradeTooHighException());
@@ -34,20 +32,17 @@ Form::Form(const std::string& name, const unsigned int s, const unsigned int e):
 
 Form::Form(const Form& copy):name(copy.name), gradeForSign(copy.gradeForSign), gradeForExec(copy.gradeForExec)
 {
-	std::cout << "Form Copy Constructor called\n";
 	*this = copy;
 }
 
 Form& Form::operator=(const Form& copy)
 {
-	std::cout << "Form Assignation operator called\n";
 	isSigned = copy.isSigned;
 	return *this;
 }
 
 Form::~Form()
 {
-	std::cout << "Form Destructor called\n";
 }
 
 std::string		Form::getName() const
