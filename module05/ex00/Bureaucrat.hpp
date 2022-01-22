@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/20 00:35:48 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/22 18:14:06 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	Bureaucrat
 {
 	private:
-		std::string		name;
+		const std::string		name;
 		unsigned int	grade;
 	public:
 		Bureaucrat();

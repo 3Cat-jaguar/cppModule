@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:28:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 02:11:17 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/22 18:17:23 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat()
 	std::cout << "Bureaucrat Default Constructor called\n";
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
+Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade):name(name)
 {
 	std::cout << "Bureaucrat Constructor with param called\n";
 	try
@@ -26,7 +26,6 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 			throw (GradeTooHighException());
 		if (grade > 150)
 			throw (GradeTooLowException());
-		this->name = name;
 		this->grade = grade;
 	}
 	catch(std::exception & e)
@@ -35,7 +34,7 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& otherObj)
+Bureaucrat::Bureaucrat(const Bureaucrat& otherObj):name(otherObj.name)
 {
 	std::cout << "Bureaucrat Copy Constructor called\n";
 	*this = otherObj;
@@ -44,7 +43,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& otherObj)
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& otherObj)
 {
 	std::cout << "Bureaucrat Assignation Operator called\n";
-	name = otherObj.name;
 	grade = otherObj.grade;
 	return *this;
 }
