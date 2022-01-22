@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:21:41 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/17 16:07:28 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/22 14:47:59 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int		main()
 	std::cout << d << std::endl;
 	std::cout << "\n<< e test5 >>\n";
 	std::cout << e << std::endl;
-	e.increGrade();
-	std::cout << e << std::endl;
 	e.decreGrade();
+	std::cout << e << std::endl;
+	e.increGrade();
 	std::cout << e << std::endl;
 
 	return (0);

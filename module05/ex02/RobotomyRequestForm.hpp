@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:28:37 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 17:35:09 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/22 15:39:04 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMY_REQUEST_FORM_HPP
 
 # include "Form.hpp"
+# include <cstdlib>
+# include <ctime>
 
 class RobotomyRequestForm:public Form
 {

@@ -6,12 +6,11 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:28:37 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/21 17:10:51 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/22 15:42:29 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm():Form("Robotomy Request Form", 72, 45) {}
 
@@ -47,9 +46,12 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	}
 	//로봇화가 되고있는지에 대한 처리
 	std::cout << "DRRRRRRRRR!!!! DRRRRRRRRRRRR!!!!!\n";
-	if (std::rand() % 2 == 0)
+	srand (time(NULL));
+	int randomNum = rand();
+//	std::cout << "random number : " << randomNum << "\n";
+	if (randomNum % 2 == 0)
 		std::cout << target << " has been robotomized successfully!!!\n";
 	else
-		std::cout << target << " does not robotomize because of unexpected error...\n";
+		std::cout << "Execute your request. but... " << target << " does not robotomize because of unexpected error...\n";
 }
 
