@@ -6,7 +6,7 @@
 #    By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 19:41:21 by ylee              #+#    #+#              #
-#    Updated: 2022/01/23 19:56:27 by ylee             ###   ########.fr        #
+#    Updated: 2022/01/23 22:31:07 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM = rm -rf
 NAME = identify
 SRCS = main.cpp\
 	   Base.cpp\
-	   idendify.cpp
+	   identify.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

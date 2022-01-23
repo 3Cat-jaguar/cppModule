@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:57:35 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/23 19:58:59 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/23 22:35:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include "A.hpp"
 # include "B.hpp"
 # include "C.hpp"
+# include <iostream>
+# include <cstdlib>
+# include <ctime>
+# include <exception>
 
 Base*	generate();
 void	identify(Base* p);

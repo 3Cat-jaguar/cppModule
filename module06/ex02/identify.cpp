@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:57:35 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/23 20:22:12 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/23 22:51:58 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Base*	generate()
 	{
 		return new B();
 	}
-	else if (i % 3 == 2)
+	else
 	{
 		return new C();
 	}
@@ -32,11 +32,53 @@ Base*	generate()
 
 void	identify(Base* p)
 {
-
+		if (dynamic_cast<A*>(p))
+		{
+			std::cout << "Real class : A\n";
+			return ;
+		}
+		else if (dynamic_cast<B*>(p))
+		{
+			std::cout << "Real class : B\n";
+			return ;
+		}
+		else if (dynamic_cast<C*>(p))
+		{
+			std::cout << "Real class : C\n";
+			return ;
+		}
+		std::cerr << "This pointer cannot cast because it does not include A, B nor C\n";
 }
 
 void	identify(Base& p)
 {
+	Base check;
+	try
+	{
+		check = dynamic_cast<A&>(p);
+		std::cout << "Real class : A\n";
+	}
+	catch(std::exception& e)
+	{
+		try
+		{
+			check = dynamic_cast<B&>(p);
+			std::cout << "Real class : B\n";
+		}
+		catch(std::exception& e)
+		{
+			try
+			{
+				check = dynamic_cast<C&>(p);
+				std::cout << "Real class : C\n";
+			}
+			catch(std::exception& e)
+			{
+				std::cerr << "This reference cannot cast because ";
+				std::cerr << e.what() << std::endl;
 
+			}
+		}
+	}
 }
 
