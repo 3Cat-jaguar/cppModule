@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:48:19 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/23 23:03:26 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/24 01:41:43 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,15 +115,15 @@ int	conversion::checkType()
 
 	void	conversion::convertInt()
 	{
-		float	f = atof(param);
-		if (f > INT_MAX || f < INT_MIN)
+		double	d = atof(param);
+		if (d > INT_MAX || d < INT_MIN)
 		{
 			std::cout << "char\t : impossible\n";
 			std::cout << "int\t : impossible\n";
 		}
 		else
 		{
-			int	i = static_cast<int>(f);
+			int	i = static_cast<int>(d);
 			std::cout << "char\t : ";
 			if (i > CHAR_MAX || i < CHAR_MIN)
 				std::cout << "impossible\n";
@@ -133,8 +133,14 @@ int	conversion::checkType()
 				std::cout << "Non displayable\n";
 			std::cout << "int\t : " << i << std::endl;
 		}
-		std::cout << "float\t : " << f << ".0f\n";
-		std::cout << "double\t : " << static_cast<double>(f) << ".0\n";
+		if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::lowest())
+			std::cout << "float\t : " << static_cast<float>(d) << "f\n";
+		else
+			std::cout << "float\t : " << static_cast<float>(d) << ".0f\n";
+		if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::lowest())
+			std::cout << "double\t : " << d << "\n";
+		else
+			std::cout << "double\t : " << d << ".0\n";
 	}
 
 	void	conversion::convertFloat()
@@ -149,7 +155,49 @@ int	conversion::checkType()
 			std::cout << "double\t : " << param << "\n";
 		}
 		else
-			this->convertInt();
+		{
+			double	d = atof(param);
+			int	i = static_cast<int>(d);
+
+			if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::lowest())
+			{
+				std::cout << "char\t : impossible\n";
+				std::cout << "int\t : impossible\n";
+				std::cout << "float\t : " << static_cast<float>(d) << "f\n";
+				std::cout << "double\t : " << d << "\n";
+				return ;
+			}
+
+			if (d > INT_MAX || d< INT_MIN)
+			{
+				std::cout << "char\t : impossible\n";
+				std::cout << "int\t : impossible\n";
+			}
+			else
+			{
+				std::cout << "char\t : ";
+				if (i > CHAR_MAX || i < CHAR_MIN)
+					std::cout << "impossible\n";
+				else if (isprint(i))
+					std::cout << "\'" << static_cast<char>(i) << "\'\n";
+				else
+					std::cout << "Non displayable\n";
+				std::cout << "int\t : " << i << std::endl;
+			}
+			if (d - i == 0)
+			{
+				if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::lowest())
+					std::cout << "float\t : " << static_cast<float>(d) << "f\n";
+				else
+					std::cout << "float\t : " << static_cast<float>(d) << ".0f\n";
+				std::cout << "double\t : " << d << ".0\n";
+			}
+			else
+			{
+				std::cout << "float\t : " << static_cast<float>(d) << "f\n";
+				std::cout << "double\t : " << d << "\n";
+			}
+		}
 	}
 	
 	void	conversion::convertDouble()
@@ -164,6 +212,5 @@ int	conversion::checkType()
 			std::cout << "double : " << param << "\n";
 		}
 		else
-			this->convertInt();
+			this->convertFloat();
 	}
-
