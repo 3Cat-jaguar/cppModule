@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:48:19 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/23 19:33:54 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/23 23:03:26 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,40 +92,25 @@ int	conversion::checkType()
 		(this->*func[type])();
 	}
 
-/*
-	void	conversion::printChar(char& c)
-	{
-
-	}
-
-	void	conversion::printInt(int& i)
-	{
-	}
-	void	conversion::printFloat(float& f);
-	void	conversion::printDouble(double& d);
-*/
-
-
 	void	conversion::printElse()
 	{
-//		std::cout << ">> param is string \"" << param << "\"<<\n";
-		std::cout << "char	 : impossible\n";
-		std::cout << "int	 : impossible\n";
-		std::cout << "float	 : impossible\n";
-		std::cout << "double : impossible\n";
+		std::cout << "char\t : impossible\n";
+		std::cout << "int\t : impossible\n";
+		std::cout << "float\t : impossible\n";
+		std::cout << "double\t : impossible\n";
 	}
 
 	void	conversion::convertChar()
 	{
 		char	c = param[0];
-		std::cout << "char	 : ";
+		std::cout << "char\t : ";
 		if (isprint(c))
 			std::cout << "\'" << c << "\'\n";
 		else
 			std::cout << "Non displayable\n";
-		std::cout << "int	 : " << static_cast<int>(c) << std::endl;
-		std::cout << "float	 : " << static_cast<float>(c) << std::endl;
-		std::cout << "double : " << static_cast<double>(c) << std::endl;
+		std::cout << "int\t : " << static_cast<int>(c) << std::endl;
+		std::cout << "float\t : " << static_cast<float>(c) << ".0f\n";
+		std::cout << "double\t : " << static_cast<double>(c) << ".0\n";
 	}
 
 	void	conversion::convertInt()
