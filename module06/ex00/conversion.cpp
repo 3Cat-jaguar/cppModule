@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:48:19 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/25 17:37:19 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 17:39:27 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,10 +204,10 @@ int	conversion::checkType()
 	{
 		if (!strcmp(param, "inf") || !strcmp(param, "+inf") || !strcmp(param, "-inf") || !strcmp(param, "nan"))
 		{
-			std::cout << "char	 : impossible\n";
-			std::cout << "int	 : impossible\n";
-			std::cout << "float	 : " << param << "f\n";
-			std::cout << "double : " << param << "\n";
+			std::cout << "char\t : impossible\n";
+			std::cout << "int\t : impossible\n";
+			std::cout << "float\t : " << param << "f\n";
+			std::cout << "double\t : " << param << "\n";
 		}
 		else
 			this->convertFloat();
