@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:05:30 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/25 00:44:18 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/26 00:06:21 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ T	getElement(T* arr, int idx)
 }
 
 template <typename T>
-void	iter(T* arr, size_t len, T (*func)(T*, int))
+//void	iter(T* arr, size_t len, void(*func)(T const &))
+void	iter(T* arr, size_t len, T(*func)(T*, int))
 {
 	std::cout << "Each element print : ";
 	for (size_t i = 0; i < len; i++)
 	{
+//		func(arr[i]);
 		std::cout << func(arr, i);
 		if (i + 1 != len)
 			std::cout << " , ";
