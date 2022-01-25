@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:23:11 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/23 22:53:27 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 17:46:42 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ int	main(void)
 	delete testB;
 	delete testC;
 	delete testN;
+
+	std::cout << std::endl;
+	std::cout << ">> test reference cast <<\n";
+
+	Base*	random = generate();
+	identify(random);
+
+	delete random ;
+
 //	system("leaks identify");
 }
 
