@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:33:59 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/25 00:42:20 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 23:11:25 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int 	main(void)
 
 std::cout << "\n>>Execute iter func with class type <<\n";
 	iter(classArr, 4, getElement);
+	
+	return 0 ;
 }
 
