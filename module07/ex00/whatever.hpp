@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 23:26:21 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/24 23:59:41 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 23:00:21 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap(T& a, T& b)
 template <typename T>
 T	min(T& a, T& b)
 {
-	if (a > b)
+	if (a < b)
 		return a;
 	return b;
 }
@@ -35,7 +35,7 @@ T	min(T& a, T& b)
 template <typename T>
 T	max(T& a, T& b)
 {
-	if (a < b)
+	if (a > b)
 		return a;
 	return b;
 }
