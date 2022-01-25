@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:48:19 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/24 01:41:43 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 17:34:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,8 +207,6 @@ int	conversion::checkType()
 			std::cout << "char	 : impossible\n";
 			std::cout << "int	 : impossible\n";
 			std::cout << "float	 : " << param << "f\n";
-			int len = strlen(param);
-			param[len - 1] = '\0';
 			std::cout << "double : " << param << "\n";
 		}
 		else
