@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:48:19 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/25 17:34:19 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/25 17:37:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	conversion::checkType()
 		return IS_CHAR ;
 	if (!param[1] && !isdigit(param[0]))
 		return IS_CHAR ;
-	if (!strcmp("+inff", param) || !strcmp("-inff", param) || !strcmp("nanf", param))
+	if (!strcmp("inff", param) || !strcmp("+inff", param) || !strcmp("-inff", param) || !strcmp("nanf", param))
 		return IS_FLOAT;
-	if (!strcmp("+inf", param) || !strcmp("-inf", param) || !strcmp("nan", param))
+	if (!strcmp("inf", param) || !strcmp("+inf", param) || !strcmp("-inf", param) || !strcmp("nan", param))
 		return IS_DOUBLE;
 	int i = 0;
 	if (param[i] == '+' || param[i] == '-')
@@ -145,7 +145,7 @@ int	conversion::checkType()
 
 	void	conversion::convertFloat()
 	{
-		if (!strcmp(param, "+inff") || !strcmp(param, "-inff") || !strcmp(param, "nanf"))
+		if (!strcmp(param, "inff") || !strcmp(param, "+inff") || !strcmp(param, "-inff") || !strcmp(param, "nanf"))
 		{
 			std::cout << "char\t : impossible\n";
 			std::cout << "int\t : impossible\n";
@@ -202,7 +202,7 @@ int	conversion::checkType()
 	
 	void	conversion::convertDouble()
 	{
-		if (!strcmp(param, "+inf") || !strcmp(param, "-inf") || !strcmp(param, "nan"))
+		if (!strcmp(param, "inf") || !strcmp(param, "+inf") || !strcmp(param, "-inf") || !strcmp(param, "nan"))
 		{
 			std::cout << "char	 : impossible\n";
 			std::cout << "int	 : impossible\n";
