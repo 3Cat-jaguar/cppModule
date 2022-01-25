@@ -5,7 +5,9 @@
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+	std::cout << "The number of Array numbers elements : " << numbers.size() << std::endl;
+
+	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
 	std::cout << ">>set number's elements<<\n";
 	for (int i = 0; i < MAX_VAL; i++)
@@ -16,13 +18,9 @@ int main(int, char**)
         mirror[i] = value;
     }
 	std::cout << "\n>>copy numbers to tmp, test<<\n";
-    //SCOPE
-//	{
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-//	}
 
-//	numbers[0] = rand();
+	Array<int> tmp = numbers;
+	Array<int> test(tmp);
 
     for (int i = 0; i < MAX_VAL; i++)
     {
