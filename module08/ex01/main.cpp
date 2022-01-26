@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:30:03 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/26 23:15:21 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:22:40 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 	{
 		lst.push_back(rand());
 	}
-	sp.addNumber(lst.begin(), lst.end(), lst.size());
+	sp.addNumbers(lst.begin(), lst.end(), lst.size());
 	std::cout << "shortestSpan : " << sp.shortestSpan() << std::endl;
 	std::cout << "longestSpan : " << sp.longestSpan() << std::endl;
 

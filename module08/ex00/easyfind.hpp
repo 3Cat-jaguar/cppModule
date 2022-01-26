@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:09:29 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/26 22:10:29 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:08:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 
 # include <iostream>
 # include <iterator>
+# include <algorithm>
 
 template <typename T>
 int	easyfind(T & container, int n)
 {
 	typename T::iterator iter;
-	for (iter = container.begin(); iter != container.end(); iter++)
-	{
-		if (*iter == n)
-			return *iter ;
-	}
-	throw (std::out_of_range("cannot found\n"));
+	iter = std::find(container.begin(), container.end(), n);
+	if (iter == container.end())
+		throw (std::out_of_range("cannot found\n"));
+	return *iter ;
 }
 
 #endif

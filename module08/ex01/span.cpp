@@ -6,11 +6,12 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:29:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/26 23:00:40 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:22:24 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
+#include <algorithm>
 
 Span::Span():maxSize(0) {}
 Span::Span(unsigned int N):maxSize(N) { vec.reserve(N); }
@@ -32,7 +33,7 @@ void	Span::addNumber(int n)
 }
 
 template <typename T>
-void	Span::addNumber(const T& first, const T& last, unsigned int len)
+void	Span::addNumbers(const T& first, const T& last, unsigned int len)
 {
 	if (maxSize - vec.size() < len)
 		throw( std::length_error("Cannot add ints. Don't have enough space\n") );
@@ -44,7 +45,7 @@ int		Span::shortestSpan()
 	if (maxSize < 2)
 		throw ( std::length_error("Cannot cal Span. This container has less than 2 elements.\n") );
 	std::vector<int> tmp = vec;
-	sort(tmp.begin(), tmp.end());
+	std::sort(tmp.begin(), tmp.end());
 	int		min = tmp.back() - tmp.front();
 	std::vector<int>::iterator cur = tmp.begin();
 	std::vector<int>::iterator next = cur + 1;
@@ -63,7 +64,7 @@ int		Span::longestSpan()
 	if (maxSize < 2)
 		throw ( std::length_error("Cannot cal Span. This container has less than 2 elements.\n") );
 	std::vector<int> tmp = vec;
-	sort(tmp.begin(), tmp.end());
+	std::sort(tmp.begin(), tmp.end());
 	return tmp.back() - tmp.front() ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:29:45 by ylee              #+#    #+#             */
-/*   Updated: 2022/01/26 23:04:31 by ylee             ###   ########.fr       */
+/*   Updated: 2022/01/27 00:22:04 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	~Span();
 	void	addNumber(int n);
 	template <typename T>
-	void	addNumber(const T& first, const T& last, unsigned int len);
+	void	addNumbers(const T& first, const T& last, unsigned int len);
 	int		shortestSpan();
 	int		longestSpan();
 };
